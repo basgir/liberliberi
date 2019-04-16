@@ -25,12 +25,13 @@ SECRET_KEY = 'qxw62@+^#!vf25^0k-i(5q3e4*4_wslc1#&6wr1zluy)oik3j#'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'liber.apps.LiberConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
