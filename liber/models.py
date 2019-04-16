@@ -20,6 +20,23 @@ class UserProfile(models.Model):
     def __str__(self):
         return self.user.username
 
+class Portfolio(models.Model):
+    title = models.TextField(max_length=100)
+    url = models.URLField()
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return self.title
+
+
+class PortfolioBook(models.Model):
+    portfolio = models.ForeignKey(portfolio, on_delete=models.CASCADE)
+    book = models.ForeignKey(Book, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return "{0}-{1}".format(portfolio, book)
+
+
 class Category(models.Model):
     title = models.CharField(max_length=50)
     slug = models.SlugField(default='basic-slug',max_length=60)
@@ -42,13 +59,10 @@ class Book(models.Model):
     def __str__(self):
         return self.title
 
-class BlogPost(models.Model):
-    title = models.CharField(max_length=200)
-    slug = models.SlugField()
-    content = models.TextField(max_length=10000)
-    resource = models.FileField(default = None)
-    pub_date = models.DateField(default=timezone.now)
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
-    
+class Author(models.Model):
+    firstname = models.CharField(max_length=50)
+    lastname = models.CharField(max_length=50)
+    bio = models.CharField(max_length=50)
+
     def __str__(self):
-        return self.title
+        return "{0} {1}".format(lastname, firstname)
