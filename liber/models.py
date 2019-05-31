@@ -5,7 +5,7 @@ from django.utils import timezone
 
 # We define the file system storage
 # Image file storage system
-bo_img = FileSystemStorage(location='/home/bgir/Projects/4-prog-for-econ-101-web-app/website/courses/media/courses/img')
+#bo_img = FileSystemStorage(location='/home/bgir/Projects/4-prog-for-econ-101-web-app/website/courses/media/courses/img')
 
 
 # Create your models here.
@@ -65,3 +65,4 @@ class Author(models.Model):
     bio = models.CharField(max_length=50)
 
     def __str__(self):
+        return "{0} {1}".format(firstname, lastname)
