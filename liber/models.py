@@ -65,15 +65,3 @@ class Author(models.Model):
     bio = models.CharField(max_length=50)
 
     def __str__(self):
-<<<<<<< HEAD
-        return self.title
-
-class Author(models.Model):
-    name = models.CharField(max_length=100)
-    bio = models.CharField(max_length=300)
-
-    def __str__(self):
-        return self.name
-=======
-        return "{0} {1}".format(lastname, firstname)
->>>>>>> d52c3bf94c0ee9b6cff4c5f041f2534b47f74c4b
